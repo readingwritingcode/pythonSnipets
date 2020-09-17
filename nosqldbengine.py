@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 
 class NosqlDb:
-	'''NosqlDb engine that contains db_main and shemas s1,s2,s3
-	and methods for update schemas and store these in db_main.
+	'''NosqlDb schema that contains db_main and shemas s1,s2,s3
+	and methods for update schemas with data and store these in db_main.
 	 '''
 	
 	db_main = {'for_s1':[],'for_s2':[],'for_s3':[]}
@@ -22,8 +22,8 @@ class NosqlDb:
 		self.s2['field2'].append(value2)
 
 	def update_s3(self, value1,value2):
-		self.s1['meta1'].append(value1)
-		self.s1['meta2'].append(value2)
+		self.s3['meta1'].append(value1)
+		self.s3['meta2'].append(value2)
 
 	def update_main(self):
 
@@ -41,6 +41,8 @@ class NosqlDb:
 		else:
 			NosqlDb.db_main['for_s3'].append('empty')
 
+	def restart_db_main(self):
+		NosqlDb.db_main = {'for_s1':[],'for_s2':[],'for_s3':[]}
 
 def main():
 	print(NosqlDb.__doc__)
